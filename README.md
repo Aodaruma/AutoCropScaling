@@ -1,5 +1,7 @@
 # AutoCropScaling
 
+![thumbnail](assets/thumbnail.png)
+
 同じ量の画像を自動的に切り抜き・拡大する AviUtl スクリプトです。
 
 現在は **version 1.0** が最新です。
