@@ -1,0 +1,56 @@
+--[[
+========== LGPL LICENSE SECTION ================================
+This file is part of script/plugin "AutoCropScaling" of AviUtl.
+
+"AutoCropScaling" is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published by the Free software
+Foundation, either version 3 of the License, or (at your option) any later version.
+
+"AutoCropScaling" is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this program.
+If not, see <http://www.gnu.org/licenses/>.
+========== LPGL LICENSE SECTION END ==============================
+
+developed by Aodaruma (Twitter: @Aodaruma_)
+]]
+
+--track0:scale(%),0,300,100
+--check0:縦横拡縮可,0
+
+local scale, isNoAspect = obj.track0 / 100, obj.check0
+local w, h = obj.getpixel()
+local M, m = math.max(w, h), math.min(w, h)
+local isWoH = w > h
+local dM, dm = (1 - scale) * M, (1 - scale) * m
+local diff = dM - dm
+local cw, ch = 0, 0
+if isWoH then
+    ch = diff / scale
+else
+    cw = diff / scale
+end
+
+if isNoAspect then
+    cw, ch = cw * -1, ch * -1
+    obj.effect("リサイズ", "ドット数でサイズ指定", 1, "X", w + cw, "Y", h + ch)
+else
+    if diff > 0 then
+        if (isWoH and ch > h) then
+            cw = cw + (ch - h)
+            ch = h
+        end
+        if (not isWoH and cw > w) then
+            ch = ch + (cw - w)
+            cw = w
+        end
+
+        obj.effect("クリッピング", "上", ch / 2, "下", ch / 2, "左", cw / 2, "右", cw / 2)
+    else
+        cw, ch = cw * -1, ch * -1
+        obj.effect("領域拡張", "上", ch / 2, "下", ch / 2, "左", cw / 2, "右", cw / 2, "塗りつぶし", 1)
+    end
+end
+obj.zoom = scale
