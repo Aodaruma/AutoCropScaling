@@ -1,30 +1,23 @@
-# AviUtl-repoTemplate
+# AutoCropScaling
 
-AviUtl 用のスクリプト/プラグインのリポジトリテンプレート。
+同じ量の画像を自動的に切り抜き・拡大する AviUtl スクリプトです。
 
-a repository template of AviUtl script or plugins.
+現在は **version 1.0** が最新です。
 
-## 概要
+## AutoCropScaling.anm
 
-このリポジトリテンプレートは、AviUtlのスクリプトファイルの特性を反映するために、`.gitattributes`に改行コードや言語について指定がされています。
-また、[vscode](https://code.visualstudio.com/)でいい感じに開発できるような設定ファイルを導入しています。
+以下はパラメーターの説明です。
 
-## 使い方
+- **トラックバー・チェックボックス**
+  - scale%: 縦横において、もっとも幅が小さい部分の拡大率を設定します。
+  - 縦横拡縮可: クリッピング・ピクセル拡張せず、画像を縦横にリサイズします。
 
-1. Use this templateよりリポジトリをテンプレートとして利用。
-2. IDEなどで該当リポジトリのフォルダを開く(vscode推奨)
-3. `src/`内の必要なスクリプトを残し、スクリプトファイル内の表記に従いスクリプトを書く。
+---
 
-## スクリプトをどうやって書けばいいか分からない
+## 導入方法 / how to install
 
-AviUtlのスクリプトの作り方が分からない場合は、以下のドキュメントを参考にしてみてください。
+[こちらのリポジトリ](https://github.com/Aodaruma/Aodaruma-AviUtl-Script)を参照してください。
 
-- AviUtl scrapbox: <https://scrapbox.io/aviutl/>
-  - <https://scrapbox.io/aviutl/スクリプト開発を始めるには%EF%BC%9F>
-  - <https://scrapbox.io/aviutl/スクリプトファイル_フォーマット>
-- Lua 5.1 リファレンスマニュアル: <http://milkpot.sakura.ne.jp/lua/lua51_manual_ja.html>
-  - 公式のドキュメントも利用できます(英語): <http://www.lua.org/manual/5.1/manual.html>
+## ライセンス / Licence
 
-## ライセンス
-
-当テンプレートリポジトリで作られるAviUtlスクリプトは、LPGLに従うように事前に書き込みがされています。
+[こちらのリポジトリ](https://github.com/Aodaruma/Aodaruma-AviUtl-Script)を参照してください。
